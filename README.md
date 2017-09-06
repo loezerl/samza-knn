@@ -25,8 +25,30 @@ https://samza.apache.org/learn/documentation/latest/jobs/configuration-table.htm
 
 **Assistir:**
 https://www.youtube.com/watch?v=7YBmUKjzg7c
+
 https://www.youtube.com/watch?v=ZWez6hOpirY
+
 https://www.youtube.com/watch?v=fU9hR3kiOK0
 
 **Tutorial:**
 https://samza.apache.org/learn/tutorials/latest/hello-samza-high-level-code.html
+
+
+### Notas:
+- Toda classe que implementa ou extende uma classe do Samza, por exemplo: `Streamtask`, `InitableTask`, `WindowableTask`,
+deve ter um arquivo `.properties`.
+- A classe que implementar a classe `StreamApplication`, será a que vai estruturar toda a topologia do experimento. Essa topologia
+é definida na reimplementação do método `public void init(StreamGraph graph, Config config)`.
+Para declarar as `input streams` eu devo utilizar a variável `graph` da classe que implementa `StreamApplication`.
+Exemplo:
+```java
+ MessageStream<WikipediaFeedEvent> wikipediaEvents = graph.getInputStream(WIKIPEDIA_STREAM_ID, (k, v) -> (WikipediaFeedEvent) v);
+```
+
+- Nessa chamada de função eu declaro qual canal minha aplicação vai consumir.
+- `MessageStream` is the in-memory representation of a stream in Samza. It uses generics to ensure type safety across the streams and operations.
+- `graph.getInputStream(WIKIPEDIA_STREAM_ID, (k, v) -> (WikipediaFeedEvent) v)` Gets the input MessageStream corresponding to the streamId.
+    - K - the type of key in the incoming message
+    - V - the type of message in the incoming message
+    - M - the type of message in the input MessageStream `(WikipediaFeedEvent)`
+- A constante `WIKIPEDIA_STREAM_ID` deve ser a mesma presente no arquivo de configuração.
