@@ -52,3 +52,16 @@ Exemplo:
     - V - the type of message in the incoming message
     - M - the type of message in the input MessageStream `(WikipediaFeedEvent)`
 - A constante `WIKIPEDIA_STREAM_ID` deve ser a mesma presente no arquivo de configuração.
+
+
+### Kafka Notes:
+- Kafka centralizes communication between producers of data and consumers of that data.
+- The basic architecture of Kafka is organized around a few key terms: _topics, producers, consumers, and brokers_.
+    - All Kafka messages are organized into _topics_. If you wish to send a message you send it to a specific topic and if you wish to read a message you read it from a specific topic.
+    - A _consumer_ pulls messages off of a Kafka topic while _producers_ push messages into a Kafka topic.
+    - Lastly, Kafka, as a distributed system, runs in a cluster. Each node in the cluster is called a Kafka _broker_.
+- Kafka topics are divided into a number of _partitions_.
+- Partitions allow you to **parallelize** a topic by splitting the data in a particular topic across multiple brokers — each partition can be placed on a separate machine to allow for multiple consumers to read from a topic in parallel.
+- Consumers can also be parallelized so that multiple consumers can read from multiple partitions in a topic allowing for very high message processing throughput.
+More: https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
+

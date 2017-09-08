@@ -16,7 +16,7 @@ import org.apache.samza.task.TaskCoordinator;
 /**
  * Created by loezerl-fworks on 05/09/17.
  */
-public class Prequential extends Evaluator implements StreamApplication{
+public class Prequential extends Evaluator {
 
     private int confirm=0;
     private int miss=0;
