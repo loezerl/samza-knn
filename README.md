@@ -66,9 +66,32 @@ Exemplo:
 More: https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
 
 ### WATDO:
-- Criar uma função que escreve para strings para um kakfa-topic. (Producer feito, Criar um Consumer e testar)
+- Criar uma função que escreve para strings para um kakfa-topic. (Producer feito, Criar um Consumer e testar) **OK**
     - [Pesquisa 1](https://mapr.com/blog/getting-started-sample-programs-apache-kafka-09/)
-- Dar um jeito de escrever para um kafka-topic as instances. 
-- Se não tiver como escrever o objeto, criar métodos para serializar/deserializar as instancias.
+- Dar um jeito de escrever para um kafka-topic as instances. **OK**
+- Se não tiver como escrever o objeto, criar métodos para serializar/deserializar as instancias. **OK**
     - [Pesquisa 1](https://stackoverflow.com/questions/41141924/send-custom-java-objects-to-kafka-topic)
-    
+- A classe `Instance` do MOA já implementa o Serializable do Java. **OK**
+- O meu samza job (`StreamTask`) vai ler do meu kafka-topic e processar as streams. Os resultados serão mandados para outro kafka-topic.
+    - [Pesquisa 1](https://stackoverflow.com/questions/44936037/consume-remote-kafka-topic-with-samza)
+- Acredito que meu Samza `StreamApplication` vai consumir apenas um OutputStream e processa-lo.
+- Criar um arquivo de configuração semelhante ao `/home/loezerl-fworks/samza/hello-samza/src/main/config/pageview-filter.properties`.
+
+   
+Código para serializar um objeto para ByteArray:
+```java
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+ObjectOutputStream oos = new ObjectOutputStream(baos);
+oos.writeObject(example);
+oos.close();
+byte[] b = baos.toByteArray();
+```
+
+Código para deserializar um objeto para ByteArray:
+```java
+Instance h2;
+ByteArrayInputStream bis = new ByteArrayInputStream(b);
+ObjectInput in = new ObjectInputStream(bis);
+h2 = (Instance) in.readObject();
+```
+
