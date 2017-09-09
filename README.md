@@ -65,3 +65,10 @@ Exemplo:
 - Consumers can also be parallelized so that multiple consumers can read from multiple partitions in a topic allowing for very high message processing throughput.
 More: https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
 
+### WATDO:
+- Criar uma função que escreve para strings para um kakfa-topic. (Producer feito, Criar um Consumer e testar)
+    - [Pesquisa 1](https://mapr.com/blog/getting-started-sample-programs-apache-kafka-09/)
+- Dar um jeito de escrever para um kafka-topic as instances. 
+- Se não tiver como escrever o objeto, criar métodos para serializar/deserializar as instancias.
+    - [Pesquisa 1](https://stackoverflow.com/questions/41141924/send-custom-java-objects-to-kafka-topic)
+    

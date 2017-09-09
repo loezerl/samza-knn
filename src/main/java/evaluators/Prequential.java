@@ -21,6 +21,7 @@ public class Prequential extends Evaluator {
     private int confirm=0;
     private int miss=0;
     private int[][] confusion_matrix;
+    public static String INPUT_STREAM = "Instances-generator";
 
     public Prequential(Classifier _classifier, ArffFileStream data){ super(_classifier, data); }
 
@@ -30,7 +31,8 @@ public class Prequential extends Evaluator {
     public void init(StreamGraph streamGraph, Config config) {
 
         //Inputs
-        MessageStream<Instance> File_instances = streamGraph.getInputStream("arff-file-instances", (k, v) -> (Instance) v);
+        MessageStream<Instance> File_instances = streamGraph.getInputStream(INPUT_STREAM, (k, v) -> (Instance) v);
+
 
         //Outputs
 
