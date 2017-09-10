@@ -95,3 +95,9 @@ ObjectInput in = new ObjectInputStream(bis);
 h2 = (Instance) in.readObject();
 ```
 
+
+
+- Experimenter ser um StreamApplication
+- Prequential ser um StreamTask
+- Fazer um StreamTask que mande pra outra stream as Instancias em String.
+

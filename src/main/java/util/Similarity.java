@@ -11,7 +11,7 @@ public class Similarity {
         double dist = 0.0;
 
         if(a.numAttributes() != b.numAttributes()){
-            System.out.println("Instances with different sizes.");
+            System.err.println("Instances with different sizes.");
             System.exit(1);
         }
 

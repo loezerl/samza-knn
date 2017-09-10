@@ -1,7 +1,8 @@
 package classifiers;
 
-/**
- * Created by loezerl-fworks on 05/09/17.
- */
+import com.yahoo.labs.samoa.instances.Instance;
+
 public class Classifier {
+    public boolean test(Instance example) throws Exception{return false;}
+    public void train(Instance example){}
 }

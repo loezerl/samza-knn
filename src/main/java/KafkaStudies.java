@@ -18,8 +18,6 @@ public class KafkaStudies {
     public static String DATABASE;
     public static String KAFKA_TOPIC;
 
-    public KafkaStudies(){}
-
     public static void main(String[] args) throws IOException{
 
 
@@ -27,7 +25,6 @@ public class KafkaStudies {
         KAFKA_TOPIC = args[1];
 
         ArffFileStream file = new ArffFileStream(DATABASE, -1);
-
 
         KafkaProducer<String, byte[]> producer;
         try (InputStream props = Resources.getResource("producer.props").openStream()) {
