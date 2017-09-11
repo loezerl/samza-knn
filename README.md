@@ -75,7 +75,8 @@ More: https://sookocheff.com/post/kafka/kafka-in-a-nutshell/
 - O meu samza job (`StreamTask`) vai ler do meu kafka-topic e processar as streams. Os resultados serão mandados para outro kafka-topic.
     - [Pesquisa 1](https://stackoverflow.com/questions/44936037/consume-remote-kafka-topic-with-samza)
 - Acredito que meu Samza `StreamApplication` vai consumir apenas um OutputStream e processa-lo.
-- Criar um arquivo de configuração semelhante ao `/home/loezerl-fworks/samza/hello-samza/src/main/config/pageview-filter.properties`.
+- Criar um arquivo de configuração semelhante ao `/home/loezerl-fworks/samza/hello-samza/src/main/config/pageview-filter.properties`. **OK**
+- Ver como criar um Factory e como funciona. **OK**.
 
    
 Código para serializar um objeto para ByteArray:
@@ -97,7 +98,4 @@ h2 = (Instance) in.readObject();
 
 
 
-- Experimenter ser um StreamApplication
-- Prequential ser um StreamTask
-- Fazer um StreamTask que mande pra outra stream as Instancias em String.
 
